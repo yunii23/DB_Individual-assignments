@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>로그인</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>로그인</h1>
+
+        <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+    
+        <form class="login-form" method="POST" action="/users/login">
+            <div>
+                <label for="user_id">아이디</label>
+                <input id="user_id" name="user_id" type="text"/>
+            </div>
+            <div>
+                <label for="user_pw">비밀번호</label>
+                <input id="user_pw" name="user_pw" type="password"/>
+            </div>
+
+            <button type="submit" >LOGIN</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/'">취소</button>
+    </body>
+</html>

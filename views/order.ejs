@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>주문하기</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>주문하기</h1>
+
+        <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+
+    
+        <form class="order-form" method="POST" action="/book/buy/<%=book_num%>">
+        
+            <br>
+            <div>
+                <label for="order_value">구매 개수</label>
+                <input id="order_value" name="order_value" type="text" value="<%= sess.sum %>"/> 
+                <br>
+                <p id="order_price" name="order_price" type="text"><span>금액: <%= sess.price*sess.sum %></span></p>  
+                <label for="today">날짜</label>
+                <input id="today" name="today" type="text"/>
+            </div>
+            
+            <div>
+                <label for="order_card">카드 선택</label>
+                <select id="order_card" class="form-control" aria-colspan="13" name="order_card" style="width: auto;">
+                    <option value="">카드 선택</option>
+                    <% for(var i = 0; i < cardinfo.length; i++ ) { %>
+                    <option value="<%=cardinfo[i].card_num%>">
+                        <%=cardinfo[i].card_num + "  " + cardinfo[i].card_date + "  " + cardinfo[i].card_kind %></option>   
+                    <% } %>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="order_place">배송지 선택</label>
+                <select id="order_place" class="form-control" aria-colspan="13" name="order_place" style="width: auto;">
+                    <option value="">배송지선택</option>
+                    <% for(var i = 0; i < placeinfo.length; i++ ) { %>
+                    <option value="<%=placeinfo[i].place_num%>">
+                        <%=placeinfo[i].place_num + "  " + placeinfo[i].place_addr + "  " + placeinfo[i].place_addrinfo %></option>   
+                    <% } %>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="order_coupon">쿠폰 선택</label>
+                <select id="order_coupon" class="form-control" aria-colspan="13" name="order_coupon" style="width: auto;">
+                    <option value="">쿠폰선택</option>
+                    <% for(var i = 0; i < couponinfo.length; i++ ) { %>
+                    <option value="<%=couponinfo[i].coupon_id%>">
+                        <%=couponinfo[i].coupon_kind %></option>   
+                    <% } %>
+                </select>
+            </div>
+            <br>
+            <button type="submit">주문</button>
+        </form>
+ 
+        <br>
+        <button type="button" onclick="location.href='/'">취소</button>
+    </body>
+</html>

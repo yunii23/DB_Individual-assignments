@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>카드입력</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>카드입력</h1>
+        <form class="card-form" method="POST" action="/users/card">
+            <div>
+                <label for="card_num">카드번호</label>
+                <input id="card_num" name="card_num" type="text"/>
+            </div>
+            <div>
+                <label for="card_date">카드유효기간</label>
+                <input id="card_date" name="card_date" type="text"/>
+            </div>
+
+            <div>
+                <label for="card_kind">카드종류</label>
+                <input id="card_kind" name="card_kind" type="text"/>
+            </div>
+
+            <button type="submit" >카드등록</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/user/mypage'">취소</button>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>마이페이지</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>마이페이지</h1>
+      <p><%= sess %>님 </p>
+
+      <button type="button" onclick="location.href='/'">홈</button>
+
+      <br>
+      <br>
+
+      <button type="button" onclick="location.href='/users/card'">카드등록</button>
+      <button type="button" onclick="location.href='/users/place'">배송지등록</button>
+      <button type="button" onclick="location.href='/order/myorderlist'">주문내역</button>
+ 
+      <br>
+      <br>
+
+      //카드내역 출력
+      <div class="card_read">
+        <table class="card_read_table">
+          <thead>
+            <tr>
+              <td>카드번호</td>
+              <td>카드유효기간</td>
+              <td>카드종류</td>
+              <td></td>
+            </tr>
+          </thead>
+              
+          <tbody>
+            <% for(var i = 0; i < cardinfo.length; i++ ) { %>
+              <tr>
+                <td ><%= cardinfo[i].card_num %></td>
+                <td><%= cardinfo[i].card_date %></td>
+                <td><%=  cardinfo[i].card_kind%></td>
+                <td><button type="button" onclick="location.href='/users/carddelete/<%= cardinfo[i].card_num%>'">삭제</button></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      //배송지 출력
+      <div class="place_read">
+        <table class="place_read_table">
+          <thead>
+            <tr>
+              <td>우편번호</td>
+              <td>기본주소</td>
+              <td>상세주소</td>
+              <td></td>
+            </tr>
+          </thead>
+              
+          <tbody>
+            <% for(var i = 0; i < placeinfo.length; i++ ) { %>
+              <tr>
+                <td ><%= placeinfo[i].place_num %></td>
+                <td><%= placeinfo[i].place_addr %></td>
+                <td><%=  placeinfo[i].place_addrinfo%></td>
+                <td><button type="button" onclick="location.href='/users/placeupdate/<%= placeinfo[i].place_id%>'">수정</button></td>
+                <td><button type="button" onclick="location.href='/users/placedelete/<%= placeinfo[i].place_id%>'">삭제</button></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+
+
+
+      //쿠폰 출력
+      <div class="coupon_read">
+        <table class="coupon_read_table">
+          <thead>
+            <tr>
+              <td>쿠폰번호</td>
+              <td>쿠폰종류</td>
+              <td>사용여부</td>
+              <td>발급일</td>
+              <td>사용일</td>
+              <td>유효기간 종료일</td>
+            </tr>
+          </thead>
+              
+          <tbody>
+            <% for(var i = 0; i < couponinfo.length; i++ ) { %>
+              <tr>
+                <td ><%= couponinfo[i].coupon_id %></td>
+                <td><%= couponinfo[i].coupon_kind %></td>
+                <td><%=  couponinfo[i].coupon_use%></td>
+                <td ><%= couponinfo[i].coupon_useDate %></td>
+                <td><%= couponinfo[i].coupon_startDate %></td>
+                <td><%=  couponinfo[i].coupon_lastDate%></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+
+  </body>
+</html>

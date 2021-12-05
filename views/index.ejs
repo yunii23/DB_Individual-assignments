@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %>도서구매</h1>
+    <p>Welcome to <%= title %></p>
+
+    <h1></h1>  
+    
+    
+    
+    <% if(sess === undefined) { %>
+      <button type="button" onclick="location.href='/users'">회원가입</button>
+      <button type="button" onclick="location.href='/users/login'">로그인</button>
+    <% } else { %>
+      <button type="button" onclick="location.href='/users/logout'">로그아웃</button>
+      <button type="button" onclick="location.href='/users/mypage'">마이페이지</button>
+      <button type="button" onclick="location.href='/order/basket'">장바구니</button>
+    <% } %>
+  
+    <% if(sess == "host") { %>
+      <td>
+        <button type="button" onclick="location.href='/book'">도서등록</button>
+        <button type="button" onclick="location.href='/users/coupon'">쿠폰등록</button>
+      </td> 
+      <% } %>
+    
+  
+    <p>안녕하세요. <%= sess %>님</p>
+
+    <br>
+    <br>
+    <form action="/" method="POST">
+      <label for="search">검색</label>
+      <input type="text" name="search" autocomplete="off">
+      <input type="submit" name="sss" value="검색하기">
+    </form>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    //도서내역 출력
+    <div class="book_read">
+      <table class="book_read_table">
+        <thead>
+          <tr>
+            <td>도서번호</td>
+            <td>도서명</td>
+            <td>도서재고</td>
+            <td>도서금액</td>
+          </tr>
+        </thead>
+            
+        <tbody>
+          <% for(var i = 0; i < bookinfo.length; i++ ) { %>
+            <tr>
+              <td ><%= bookinfo[i].book_num %></td>
+              <td><%= bookinfo[i].book_name %></td>
+              <td><%=  bookinfo[i].book_value%></td>
+              <td><%=  bookinfo[i].book_money%></td>
+              <% if(sess == "host") { %>
+              <td>
+                <button type="button" onclick="location.href='/book/bookupdate/<%= bookinfo[i].book_num%>'">수정</button>
+                <button type="button" onclick="location.href='/book/bookdelete/<%= bookinfo[i].book_num%>'">삭제</button> 
+              </td> 
+              <% } %>
+              <% if(sess !== undefined){ %>
+                <td><button type="button" onclick="location.href='/book/bookinfodetail/<%= bookinfo[i].book_num%>'">상세보기</button></td>
+          
+              <% } %>
+            </tr> 
+          <% } %>
+          </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>

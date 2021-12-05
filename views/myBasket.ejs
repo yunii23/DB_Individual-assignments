@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>장바구니</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>장바구니</h1>
+      <p><%= sess %>님 </p>
+
+      <br>
+      <br>
+
+      <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+    
+
+      <div class="mybasketlist">
+        <table class="mybasketlist">
+          <thead>
+            <tr>
+              <td>도서번호</td>
+              <td>도서명</td>
+              <td>도서금액</td>
+              <td>개수</td>
+            </tr>
+          </thead>
+              
+          <tbody>
+            <% for(var i = 0; i < basketinfo.length; i++ ) { %>
+              <tr>
+                <td><%= basketinfo[i].book_book_num %></td>
+                <td><%=  basketinfo[i].book_name%></td>
+                <td><%=  basketinfo[i].book_money%></td>
+                <td><%=  basketinfo[i].amount%></td>
+
+                <td><button type="button" onclick="location.href='/order/basketupdate/<%= basketinfo[i].book_book_num%>'">수정</button></td>
+                <td><button type="button" onclick="location.href='/order/basketdelete/<%= basketinfo[i].book_book_num%>'">삭제</button></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+
+        <button type="button" onclick="location.href='/order/basketOrder'">주문하기</button>
+      </div>
+
+      
+
+
+  </body>
+</html>

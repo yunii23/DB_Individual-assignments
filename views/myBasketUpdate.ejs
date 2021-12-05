@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>장바구니 도서 수정</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>장바구니 도서 수정</h1>
+
+        <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+
+    
+        <form class="myBasketUpdate-form" method="POST" action="/order/basketupdate/<%= book_book_num %>">
+            
+            <div>
+                <label for="amount">구매 할 도서 수</label>
+                <input id="amount" name="amount" type="text"/>
+            </div>
+
+            <button type="submit" >도서 수정완료</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/order/basket'">취소</button>
+    </body>
+</html>

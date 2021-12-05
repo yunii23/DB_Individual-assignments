@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>쿠폰등록</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>쿠폰등록</h1>
+        <form class="coupon-form" method="POST" action="/users/coupon">
+            <div>
+                <label for="coupon_id">쿠폰번호</label>
+                <input id="coupon_id" name="coupon_id" type="text"/>
+            </div>
+            <div>
+                <label for="coupon_kind">쿠폰종류</label>
+                <input id="coupon_kind" name="coupon_kind" type="text"/>
+            </div>
+
+            <div>
+                <label for="user_id">사용자</label>
+                <input id="user_id" name="user_id" type="text"/>
+            </div>
+
+            <div>
+                <label for="coupon_startDate">발급일</label>
+                <input id="coupon_startDate" name="coupon_startDate" type="text"/>
+            </div>
+
+            <div>
+                <label for="coupon_lastDate">사용마감일</label>
+                <input id="coupon_lastDate" name="coupon_lastDate" type="text"/>
+            </div>
+
+            <button type="submit" >쿠폰등록</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/user/mypage'">취소</button>
+    </body>
+</html>

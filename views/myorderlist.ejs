@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>주문내역</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>주문내역</h1>
+      <p><%= sess %>님 </p>
+
+      <br>
+      <br>
+      <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+    
+
+      //카드내역 출력
+      <div class="myorderlist">
+        <table class="myorderlist_table">
+          <thead>
+            <tr>
+              <td>주문번호</td>
+              <td>주문날짜</td>
+              <td>주문금액</td>
+              <td>카드번호</td>
+              <td>기본주소</td>
+              <td>상세주소</td>
+              <td>도서명</td>
+              <td>도서개수</td>
+            </tr>
+          </thead>
+              
+          <tbody>
+            <% for(var i = 0; i < orderinfo.length; i++ ) { %>
+              <tr>
+                <td><%= orderinfo[i].order_num %></td>
+                <td><%=  orderinfo[i].order_date%></td>
+                <td><%=  orderinfo[i].order_max%></td>
+                <td><%=  orderinfo[i].card_num%></td>
+                <td><%=  orderinfo[i].place_addr%></td>
+                <td><%=  orderinfo[i].place_addrinfo%></td>
+                <td><%=  orderinfo[i].book_name%></td>
+                <td><%=  orderinfo[i].sum%></td>
+                <td><button type="button" onclick="location.href='/order/myorderlist/delete/<%= orderinfo[i].order_num%>'">주문취소</button></td>
+              </tr>
+            <% } %>
+            </tbody>
+        </table>
+      </div>
+
+    
+
+
+  </body>
+</html>

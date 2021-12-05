@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>도서등록</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>도서등록</h1>
+        <form class="book-form" method="POST" action="/book">
+            <div>
+                <label for="book_num">도서번호</label>
+                <input id="book_num" name="book_num" type="text"/>
+            </div>
+            <div>
+                <label for="book_name">도서명</label>
+                <input id="book_name" name="book_name" type="text"/>
+            </div>
+
+            <div>
+                <label for="book_value">도서 재고량</label>
+                <input id="book_value" name="book_value" type="text"/>
+            </div>
+            <div>
+                <label for="book_money">도서 금액</label>
+                <input id="book_money" name="book_money" type="text"/>
+            </div>
+
+            <button type="submit" > 도서등록</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/'">취소</button>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>도서수정</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>도서수정</h1>
+        <form class="bookupdate-form" method="POST" action="/book/bookupdate/<%= book_num %>">
+            <div>
+                <label for="book_name">도서명</label>
+                <input id="book_name" name="book_name" type="text"/>
+            </div>
+            <div>
+                <label for="book_value">도서 재고량</label>
+                <input id="book_value" name="book_value" type="text"/>
+            </div>
+
+            <div>
+                <label for="book_money">도서 금액</label>
+                <input id="book_money" name="book_money" type="text"/>
+            </div>
+
+            <button type="submit" >도서수정완료</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/'">취소</button>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>배송지 수정</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+
+        <h1>배송지 수정</h1>
+
+        <button type="button" onclick="location.href='/'">홈</button>
+    <br>
+    <br>
+
+    
+        <form class="placeupdate-form" method="POST" action="/users/placeupdate/<%= place_id %>">
+            <div>
+                <label for="place_num">우편번호</label>
+                <input id="place_num" name="place_num" type="text"/>
+            </div>
+            <div>
+                <label for="place_addr">기본주소</label>
+                <input id="place_addr" name="place_addr" type="text"/>
+            </div>
+
+            <div>
+                <label for="place_addrinfo">상세주소</label>
+                <input id="place_addrinfo" name="place_addrinfo" type="text"/>
+            </div>
+
+            <button type="submit" >배송지수정완료</button>
+            
+        </form>
+
+
+        <button type="button" onclick="location.href='/users/mypage;'">취소</button>
+    </body>
+</html>
